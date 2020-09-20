@@ -14,7 +14,7 @@ module.exports = {
       title: 'My Site',
       items: [
         {
-          to: 'notes',
+          to: 'notes/mobile-robot/differential-drive-robot-model',
           activeBasePath: 'notes',
           label: 'Notes',
           position: 'left',

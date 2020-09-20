@@ -1,8 +1,13 @@
 module.exports = {
   notes: [
     {
-      type: 'doc',
-      id: 'note1',
+      type: 'category',
+      label: 'Mobile Robot',
+      items: [
+        'mobile-robot/differential-drive-robot-model',
+        'mobile-robot/forward-kinematics',
+      ],
+      collapsed: false,
     },
   ],
 }
