@@ -8365,6 +8365,11 @@ prr@~1.0.1:
   resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
   integrity sha1-0/wRS6BplaRexok/SEzrHXj19HY=
 
+pseudocode@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/pseudocode/-/pseudocode-2.2.0.tgz#47639f4b7ace050fcbc55f36f7766faab2ab3ca1"
+  integrity sha512-ZA2Tbrxntmwg2bywYbu5Ay4iWrb0F7104GoOqXaJ39lSZ2alE+xlLnLiJwkG+ztmLwKWI/brc3nAM7qk2kV90A==
+
 public-encrypt@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/public-encrypt/-/public-encrypt-4.0.3.tgz#4fcc9d77a07e48ba7527e7cbe0de33d0701331e0"

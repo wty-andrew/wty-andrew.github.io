@@ -59,5 +59,5 @@ module.exports = {
       },
     ],
   ],
-  stylesheets: ['/css/katex.min.css'],
+  stylesheets: ['/css/katex.min.css', '/css/pseudocode.min.css'],
 }
