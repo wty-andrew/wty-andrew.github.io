@@ -6,15 +6,22 @@
  */
 
 /* You can override the default Infima variables here. */
+@font-face {
+  font-family: "Andika Regular";
+  src: url('/static/css/fonts/Andika-Regular.ttf');
+}
+
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary: #00b6af;
+  --ifm-color-primary-dark: #00a49b;
+  --ifm-color-primary-darker: #009387;
+  --ifm-color-primary-darkest: #00867a;
+  --ifm-color-primary-light: #3dccc7;
+  --ifm-color-primary-lighter: #99e0dd;
+  --ifm-color-primary-lightest: #d7f3f2;
   --ifm-code-font-size: 95%;
+  --ifm-font-size-base: 18px;
+  --ifm-font-family-base: "Andika Regular";
 }
 
 .docusaurus-highlight-code-line {
