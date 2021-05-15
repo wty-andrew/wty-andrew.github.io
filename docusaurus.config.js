@@ -2,7 +2,7 @@ const remarkMath = require('remark-math')
 const rehypeKatex = require('rehype-katex')
 
 module.exports = {
-  title: 'My Site',
+  title: "wty's site",
   url: 'https://wty-andrew.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -11,20 +11,8 @@ module.exports = {
   projectName: 'wty-andrew.github.io',
   themeConfig: {
     navbar: {
-      title: 'My Site',
-      items: [
-        {
-          to: 'notes/mobile-robot/differential-drive-robot-model',
-          activeBasePath: 'notes',
-          label: 'Notes',
-          position: 'left',
-        },
-        {
-          to: 'blog',
-          label: 'Blog',
-          position: 'left',
-        },
-      ],
+      title: 'wty',
+      items: [],
       hideOnScroll: true,
     },
     footer: {
@@ -43,15 +31,16 @@ module.exports = {
       {
         docs: {
           path: 'notes',
-          routeBasePath: 'notes',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
+          rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
         blog: {
+          path: 'blog',
           showReadingTime: true,
           remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
+          rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

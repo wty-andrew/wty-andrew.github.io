@@ -1,5 +1,6 @@
 module.exports = {
   notes: [
+    'home',
     {
       type: 'category',
       label: 'Mobile Robot',
