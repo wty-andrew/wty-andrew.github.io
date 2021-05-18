@@ -10,5 +10,11 @@ module.exports = {
       ],
       collapsed: false,
     },
+    {
+      type: 'category',
+      label: 'Misc',
+      items: ['misc/r3f-urdf'],
+      collapsed: false,
+    },
   ],
 }
