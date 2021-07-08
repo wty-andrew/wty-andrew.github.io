@@ -22,5 +22,11 @@ module.exports = {
       items: ['misc/r3f-urdf'],
       collapsed: false,
     },
+    {
+      type: 'category',
+      label: 'Unorganized',
+      items: ['unorganized/non-linear-least-squares'],
+      collapsed: false,
+    },
   ],
 }
