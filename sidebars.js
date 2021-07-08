@@ -12,6 +12,12 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'ROS',
+      items: ['ros/roslisp-usage'],
+      collapsed: false,
+    },
+    {
+      type: 'category',
       label: 'Misc',
       items: ['misc/r3f-urdf'],
       collapsed: false,
