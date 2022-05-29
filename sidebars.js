@@ -18,6 +18,12 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Environment Setup',
+      items: ['environment-setup/cmake', 'environment-setup/gdb'],
+      collapsed: false,
+    },
+    {
+      type: 'category',
       label: 'Misc',
       items: ['misc/r3f-urdf'],
       collapsed: false,
