@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwty_blog=self.webpackChunkwty_blog||[]).push([[72],{8039:e=>{e.exports=JSON.parse('{"title":"Mobile Robot","slug":"/category/mobile-robot","permalink":"/category/mobile-robot","navigation":{"previous":{"title":"Home","permalink":"/"},"next":{"title":"Differential Drive Robot Model","permalink":"/mobile-robot/differential-drive-robot-model"}}}')}}]);
