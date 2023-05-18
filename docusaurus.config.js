@@ -9,10 +9,12 @@ const codeTheme = require('prism-react-renderer/themes/oceanicNext');
 const config = {
   title: "wty's site",
   favicon: 'img/favicon.ico',
-  url: 'https://wty-andrew.github.io',
+  url: 'https://wty-andrew.github.io/',
   baseUrl: '/',
-  organizationName: 'wty-andrew',
   projectName: 'wty-andrew.github.io',
+  organizationName: 'wty-andrew',
+  trailingSlash: true,
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
