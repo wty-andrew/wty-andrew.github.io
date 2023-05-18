@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { render } from 'pseudocode'
 
@@ -15,6 +14,18 @@ const Container = styled.div`
   }
 `
 
+interface Props {
+  src: string
+  children: string
+  indentSize: string
+  commentDelimiter: string
+  lineNumber: boolean
+  lineNumberPunc: string
+  noEnd: boolean
+  captionCount: number
+  titlePrefix: string
+}
+
 const PseudoCode = ({
   src,
   children,
@@ -26,9 +37,9 @@ const PseudoCode = ({
   captionCount,
   titlePrefix,
   ...props
-}) => {
+}: Props) => {
   const content = src || children
-  const ref = useRef()
+  const ref = useRef<HTMLDivElement>(null!)
   useEffect(() => {
     const options = {
       indentSize,
@@ -54,18 +65,6 @@ const PseudoCode = ({
   ])
 
   return <Container ref={ref} {...props} />
-}
-
-PseudoCode.propTypes = {
-  src: PropTypes.string,
-  children: PropTypes.string,
-  indentSize: PropTypes.string,
-  commentDelimiter: PropTypes.string,
-  lineNumber: PropTypes.bool,
-  lineNumberPunc: PropTypes.string,
-  noEnd: PropTypes.bool,
-  captionCount: PropTypes.number,
-  titlePrefix: PropTypes.string,
 }
 
 export default PseudoCode

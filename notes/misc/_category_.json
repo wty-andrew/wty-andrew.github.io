@@ -1,0 +1,9 @@
+{
+  "label": "Misc",
+  "position": 90,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index"
+  }
+}

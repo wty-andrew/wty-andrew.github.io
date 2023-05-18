@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, SVGProps } from 'react'
 import styled from 'styled-components'
 
-import { Arrow, Draggable, Ruler, Axes2D, Arc } from '../components/svg'
+import { Arrow, Draggable, Ruler, Axes2D, Arc } from '../../components/svg'
+import { degrees, clamp } from '../../utils'
 
-import { degrees, clamp } from '../utils'
-
-const remap = (value, fromLow, fromHigh, toLow, toHigh) => {
+const remap = (
+  value: number,
+  fromLow: number,
+  fromHigh: number,
+  toLow: number,
+  toHigh: number
+) => {
   return ((value - fromLow) / (fromHigh - fromLow)) * (toHigh - toLow) + toLow
 }
 
@@ -15,13 +20,17 @@ export const DashedLine = styled.line`
   stroke-dasharray: 4, 3;
 `
 
-const Label = ({ title, x = 0, y = 0, ...props }) => {
-  return (
-    <text x={x} y={y} fontFamily="KaTex_Math" {...props}>
-      {title}
-    </text>
-  )
+interface LabelProps extends SVGProps<SVGTextElement> {
+  title: string
+  x: number
+  y: number
 }
+
+const Label = ({ title, x = 0, y = 0, ...props }: LabelProps) => (
+  <text x={x} y={y} fontFamily="KaTex_Math" {...props}>
+    {title}
+  </text>
+)
 
 // Parameters
 const wheelRadius = 20
@@ -57,7 +66,7 @@ const DiffDriveModel = () => {
   const speedLeft = omega * (ICCRadius - wheelSeparation / 2)
   const speed = (speedRight + speedLeft) / 2
 
-  const handleDrag = ({ x, y }) => {
+  const handleDrag = ({ x, y }: { x: number; y: number }) => {
     const angle = degrees(Math.atan2(x - ICCPosition.x, y - ICCPosition.y))
     setRobotPose((prev) => ({ ...prev, x, y, angle }))
   }

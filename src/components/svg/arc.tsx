@@ -1,11 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { radians } from '../../utils'
 
 // https://stackoverflow.com/questions/5736398
-const polarToCartesian = (x, y, r, angle) => {
+const polarToCartesian = (x: number, y: number, r: number, angle: number) => {
   return { x: x + r * Math.cos(angle), y: y + r * Math.sin(angle) }
+}
+
+interface ArcProps {
+  x?: number
+  y?: number
+  r?: number
+  startAngle?: number
+  endAngle?: number
+  counterclockwise?: boolean
+  color?: string
 }
 
 const Arc = ({
@@ -17,11 +26,11 @@ const Arc = ({
   counterclockwise = true,
   color = 'black',
   ...props
-}) => {
+}: ArcProps) => {
   const start = polarToCartesian(x, y, r, radians(endAngle))
   const end = polarToCartesian(x, y, r, radians(startAngle))
   const sweepFlag = counterclockwise ? 0 : 1
-  const largeArcFlag = (endAngle - startAngle > 180) * (1 - sweepFlag)
+  const largeArcFlag = Number((endAngle - startAngle) > 180) * (1 - sweepFlag)
   return (
     <path
       d={`M${start.x} ${start.y} A${r} ${r},0 ${largeArcFlag} ${sweepFlag} ${end.x} ${end.y}`}
@@ -30,16 +39,6 @@ const Arc = ({
       {...props}
     />
   )
-}
-
-Arc.propTypes = {
-  x: PropTypes.number,
-  y: PropTypes.number,
-  r: PropTypes.number,
-  startAngle: PropTypes.number,
-  endAngle: PropTypes.number,
-  counterclockwise: PropTypes.bool,
-  color: PropTypes.string,
 }
 
 export default Arc

@@ -1,5 +1,4 @@
 import React, { useState, Children } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -35,14 +34,20 @@ const DetailContainer = styled.div`
   }
 `
 
+interface Props {
+  children?: React.ReactNode
+  defaultOpen?: boolean
+  showText?: string
+  hideText?: string
+}
+
 const Snippet = ({
   children,
   defaultOpen = false,
   showText = 'More',
   hideText = 'Hide',
-}) => {
+}: Props) => {
   const [show, toggleShow] = useState(defaultOpen)
-
   const [code, ...rest] = Children.toArray(children)
 
   return (
@@ -62,13 +67,6 @@ const Snippet = ({
       )}
     </>
   )
-}
-
-Snippet.propTypes = {
-  children: PropTypes.node,
-  defaultOpen: PropTypes.bool,
-  showText: PropTypes.string,
-  hideText: PropTypes.string,
 }
 
 export default Snippet

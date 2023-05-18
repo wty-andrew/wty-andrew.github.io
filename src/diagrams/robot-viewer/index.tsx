@@ -1,13 +1,12 @@
 import React, { useEffect, useState, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, useContextBridge } from '@react-three/drei'
-import URDFLoader from 'urdf-loader'
+import { OrbitControls } from '@react-three/drei'
+import URDFLoader, { URDFRobot } from 'urdf-loader'
 import useBaseUrl from '@docusaurus/useBaseUrl'
-import docusaurusContext from '@docusaurus/context'
 
-const useModel = (name) => {
+const useModel = (name: string): URDFRobot => {
   const pkgRootUrl = useBaseUrl(`/models/${name}`)
-  const [model, setModel] = useState(null)
+  const [model, setModel] = useState<URDFRobot | null>(null)
   useEffect(() => {
     const loader = new URDFLoader()
     loader.packages = {
@@ -51,19 +50,13 @@ export const DynamicModel = () => {
   return model && <primitive object={model} dispose={null} />
 }
 
-export const Viewer = ({ children, ...props }) => {
-  const ContextBridge = useContextBridge(docusaurusContext)
-
-  return (
-    <Canvas {...props}>
-      <ContextBridge>
-        <Suspense fallback={null}>
-          <OrbitControls />
-          <ambientLight intensity={0.15} />
-          <directionalLight position={[-4, 5, 1]} />
-          {children}
-        </Suspense>
-      </ContextBridge>
-    </Canvas>
-  )
-}
+export const Viewer = ({ children, ...props }) => (
+  <Canvas {...props}>
+    <Suspense fallback={null}>
+      <OrbitControls />
+      <ambientLight intensity={0.15} />
+      <directionalLight position={[-4, 5, 1]} />
+      {children}
+    </Suspense>
+  </Canvas>
+)

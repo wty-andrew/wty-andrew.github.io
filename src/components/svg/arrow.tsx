@@ -1,5 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
+interface ArrowProps {
+  x1: number
+  y1: number
+  x2: number
+  y2: number
+  color?: string
+  size?: number
+  hollow?: boolean
+  doubleEnded?: boolean
+}
 
 // https://stackoverflow.com/questions/808826
 const Arrow = ({
@@ -12,7 +22,7 @@ const Arrow = ({
   hollow = false,
   doubleEnded = false,
   ...props
-}) => {
+}: ArrowProps) => {
   const angle = Math.atan2(y2 - y1, x2 - x1)
   const cos1 = size * Math.cos(angle - Math.PI / 6)
   const sin1 = size * Math.sin(angle - Math.PI / 6)
@@ -53,17 +63,6 @@ const Arrow = ({
       )}
     </g>
   )
-}
-
-Arrow.propTypes = {
-  x1: PropTypes.number.isRequired,
-  y1: PropTypes.number.isRequired,
-  x2: PropTypes.number.isRequired,
-  y2: PropTypes.number.isRequired,
-  color: PropTypes.string,
-  size: PropTypes.number,
-  hollow: PropTypes.bool,
-  doubleEnded: PropTypes.bool,
 }
 
 export default Arrow

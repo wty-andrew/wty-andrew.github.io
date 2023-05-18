@@ -1,27 +1,29 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'prettier',
+    'plugin:prettier/recommended',
   ],
-  plugins: ['react', 'prettier'],
   settings: {
     react: {
       version: 'latest',
     },
   },
-  rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'es5',
-        semi: false,
+  overrides: [
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+        'react/jsx-uses-react': 'off',
+        'react/react-in-jsx-scope': 'off',
       },
-    ],
-    'no-console': 'warn',
+    },
+  ],
+  rules: {
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
   env: {
     browser: true,

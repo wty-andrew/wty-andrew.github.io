@@ -1,34 +1,29 @@
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
 const remarkMath = require('remark-math')
 const rehypeKatex = require('rehype-katex')
+const codeTheme = require('prism-react-renderer/themes/oceanicNext');
 
-module.exports = {
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: "wty's site",
+  favicon: 'img/favicon.ico',
   url: 'https://wty-andrew.github.io',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  favicon: 'img/favicon.ico',
   organizationName: 'wty-andrew',
   projectName: 'wty-andrew.github.io',
-  themeConfig: {
-    navbar: {
-      title: 'wty',
-      items: [],
-      hideOnScroll: true,
-    },
-    footer: {
-      style: 'dark',
-      links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} Andrew. Built with Docusaurus.`,
-    },
-    prism: {
-      theme: require('prism-react-renderer/themes/oceanicNext'),
-      additionalLanguages: ['lisp'],
-    },
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
-      {
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
           path: 'notes',
           routeBasePath: '/',
@@ -45,8 +40,28 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      },
+      }),
     ],
   ],
+  themeConfig: {
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    navbar: {
+      title: 'wty',
+      items: [],
+      hideOnScroll: true,
+    },
+    footer: {
+      style: 'dark',
+      links: [],
+      copyright: `Copyright © ${new Date().getFullYear()} Andrew. Built with Docusaurus.`,
+    },
+    prism: {
+      theme: codeTheme,
+      darkTheme: codeTheme,
+      additionalLanguages: ['lisp'],
+    },
+  },
   stylesheets: ['/css/katex.min.css', '/css/pseudocode.min.css'],
 }
+
+module.exports = config

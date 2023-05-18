@@ -1,5 +1,4 @@
 ---
-id: gdb
 title: GNU Debugger
 ---
 

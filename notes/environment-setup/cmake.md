@@ -1,5 +1,4 @@
 ---
-id: cmake
 title: CMake
 ---
 

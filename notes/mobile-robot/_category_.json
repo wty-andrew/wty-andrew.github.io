@@ -1,0 +1,9 @@
+{
+  "label": "Mobile Robot",
+  "position": 10,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index"
+  }
+}
