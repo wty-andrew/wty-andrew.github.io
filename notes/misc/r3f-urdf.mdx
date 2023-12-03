@@ -10,11 +10,11 @@ import { StaticModel, DynamicModel, Viewer } from '../../src/diagrams/robot-view
   </Viewer>
 </div>
 
-[URDF][1] is the abbreviation of Unified Robot Description Format, which is an XML format for representing a robot model in ROS, we can display a model like above in browser with [react three fiber][2][^1] through [urdf-loaders][2].
+[URDF][1] is the abbreviation of Unified Robot Description Format, which is an XML format for representing a robot model in ROS, we can display a model like above in browser with [react three fiber][2][^1] through [urdf-loaders][3].
 
 In URDF, the location of a mesh file is specified under the `filename` attribute of a mesh element with the format: `package://<package_name>/path/to/<mesh_name>`, for example:
 
-```xml title="my_pkg/urdf/foo.urdf" {3}
+```xml my_pkg/urdf/foo.urdf mark=3
 ...
 <geometry>
   <mesh filename="package://my_pkg/meshes/bar.dae"/>
@@ -30,7 +30,7 @@ However, URDF Loader doesn't know where to fetch the mesh files from the given p
 
 Consider the following ROS package structure
 
-```txt {3-7}
+```txt mark=3:7
 my_pkg/
 ├── launch/
 ├── meshes/
@@ -44,7 +44,7 @@ my_pkg/
 
 The mesh/URDF files should be copied into the public (static assets) folder of web server, assume no prefix for static files url
 
-```txt {4-10}
+```txt mark=4:10
 app/
 ├── src/
 ├── public/
@@ -80,7 +80,7 @@ const Model = () => {
 
 We need to initialize `URDFLoader` ourselves in order to remap the packages, basically create a dumb version of `useLoader`, it doesn't have suspense / cache support so is less convenient
 
-```tsx {8-10}
+```tsx mark=8:10
 import { useEffect, useState } from 'react'
 import URDFLoader, { URDFRobot } from 'urdf-loader'
 

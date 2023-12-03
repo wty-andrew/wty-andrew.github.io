@@ -1,8 +1,11 @@
 import { themes as prismThemes } from 'prism-react-renderer'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
-import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
+import { remarkCodeHike } from '@code-hike/mdx'
+
+import codeHikeTheme from './theme'
 
 const config: Config = {
   title: "wty's site",
@@ -27,6 +30,9 @@ const config: Config = {
           path: 'notes',
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
+          beforeDefaultRemarkPlugins: [
+            [remarkCodeHike, { theme: codeHikeTheme }],
+          ],
           remarkPlugins: [remarkMath],
           rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
@@ -59,7 +65,11 @@ const config: Config = {
       additionalLanguages: ['lisp'],
     },
   } satisfies Preset.ThemeConfig,
-  stylesheets: ['/css/katex.min.css', '/css/pseudocode.min.css'],
+  stylesheets: [
+    '/css/katex.min.css',
+    '/css/codehike.css',
+    '/css/pseudocode.min.css',
+  ],
 }
 
 module.exports = config
