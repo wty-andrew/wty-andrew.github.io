@@ -1,4 +1,3 @@
-/* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -12,22 +11,29 @@
 }
 
 :root {
-  --ifm-color-primary: #00b6af;
-  --ifm-color-primary-rgb: 0, 182, 175;
-  --ifm-color-primary-dark: #00a49b;
-  --ifm-color-primary-darker: #009387;
-  --ifm-color-primary-darkest: #00867a;
-  --ifm-color-primary-light: #3dccc7;
-  --ifm-color-primary-lighter: #99e0dd;
-  --ifm-color-primary-lightest: #d7f3f2;
+  --ifm-color-primary: #00948e;
+  --ifm-color-primary-rgb: 0, 148, 142;
+  --ifm-color-primary-dark: #008580;
+  --ifm-color-primary-darker: #007e79;
+  --ifm-color-primary-darkest: #006863;
+  --ifm-color-primary-light: #00a39c;
+  --ifm-color-primary-lighter: #00aaa3;
+  --ifm-color-primary-lightest: #00c0b9;
   --ifm-code-font-size: 95%;
   --ifm-font-size-base: 18px;
   --ifm-font-family-base: "Andika Regular";
+  --docusaurus-highlighted-code-line-bg: rgba(72, 77, 91, 0.8);
 }
 
-.docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-rgb: 37, 194, 160;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(72, 77, 91, 0.8);
 }

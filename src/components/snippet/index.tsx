@@ -55,15 +55,13 @@ const Snippet = ({
       {code}
 
       {rest && (
-        <>
-          <Container>
-            <ToggleButton onClick={() => toggleShow((state) => !state)}>
-              {show ? hideText : showText}
-            </ToggleButton>
+        <Container>
+          <ToggleButton onClick={() => toggleShow((state) => !state)}>
+            {show ? hideText : showText}
+          </ToggleButton>
 
-            {show && <DetailContainer>{rest}</DetailContainer>}
-          </Container>
-        </>
+          {show && <DetailContainer>{rest}</DetailContainer>}
+        </Container>
       )}
     </>
   )

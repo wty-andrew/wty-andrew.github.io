@@ -1,12 +1,10 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+import { themes as prismThemes } from 'prism-react-renderer'
+import type { Config } from '@docusaurus/types'
+import type * as Preset from '@docusaurus/preset-classic'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
-const remarkMath = require('remark-math')
-const rehypeKatex = require('rehype-katex')
-const codeTheme = require('prism-react-renderer/themes/oceanicNext');
-
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: "wty's site",
   favicon: 'img/favicon.ico',
   url: 'https://wty-andrew.github.io/',
@@ -24,12 +22,11 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           path: 'notes',
           routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.ts',
           remarkPlugins: [remarkMath],
           rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
@@ -40,13 +37,12 @@ const config = {
           rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
   themeConfig: {
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     navbar: {
       title: 'wty',
       items: [],
@@ -58,11 +54,11 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} Andrew. Built with Docusaurus.`,
     },
     prism: {
-      theme: codeTheme,
-      darkTheme: codeTheme,
+      theme: prismThemes.oceanicNext,
+      darkTheme: prismThemes.oceanicNext,
       additionalLanguages: ['lisp'],
     },
-  },
+  } satisfies Preset.ThemeConfig,
   stylesheets: ['/css/katex.min.css', '/css/pseudocode.min.css'],
 }
 

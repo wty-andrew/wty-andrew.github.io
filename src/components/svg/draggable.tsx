@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef, useCallback } from 'react'
-import mergeRefs from 'react-merge-refs'
+import { mergeRefs } from 'react-merge-refs'
 
 const toSvgCoords = (svg: SVGSVGElement, screenX: number, screenY: number) => {
   const point = svg.createSVGPoint()
