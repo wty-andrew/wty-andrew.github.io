@@ -1,9 +1,9 @@
 ---
+id: gdb
 title: GNU Debugger
 ---
 
-## Install
-`sudo apt install gdb`
+> A powerful tool to examine program execution.
 
 ## Issues
 
