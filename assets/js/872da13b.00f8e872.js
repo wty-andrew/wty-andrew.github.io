@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwty_blog=self.webpackChunkwty_blog||[]).push([[936],{4660:e=>{e.exports=JSON.parse('{"title":"Linux","slug":"/category/linux","permalink":"/category/linux","navigation":{"previous":{"title":"Visual Studio Code","permalink":"/environment-setup/vscode"},"next":{"title":"NixOS","permalink":"/linux/nixos"}}}')}}]);
