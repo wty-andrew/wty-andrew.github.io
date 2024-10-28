@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwty_blog=self.webpackChunkwty_blog||[]).push([[41],{3181:e=>{e.exports=JSON.parse('{"title":"Misc","slug":"/category/misc","permalink":"/category/misc","navigation":{"previous":{"title":"Wayland","permalink":"/linux/wayland"},"next":{"title":"Load URDF with React Three Fiber","permalink":"/misc/r3f-urdf"}}}')}}]);
