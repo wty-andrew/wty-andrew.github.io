@@ -10,6 +10,10 @@
   src: url('/static/css/fonts/Andika-Regular.ttf');
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --ifm-color-primary: #00948e;
   --ifm-color-primary-rgb: 0, 148, 142;

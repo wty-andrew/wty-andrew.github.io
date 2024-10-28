@@ -1,4 +1,4 @@
-import React, { useState, Children } from 'react'
+import { useState, Children, type ReactNode } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -35,7 +35,7 @@ const DetailContainer = styled.div`
 `
 
 interface Props {
-  children?: React.ReactNode
+  children?: ReactNode
   defaultOpen?: boolean
   showText?: string
   hideText?: string

@@ -1,13 +1,21 @@
-import { themes as prismThemes } from 'prism-react-renderer'
-import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
+import type { Config } from '@docusaurus/types'
+import { recmaCodeHike, remarkCodeHike } from 'codehike/mdx'
+import { themes as prismThemes } from 'prism-react-renderer'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import { remarkCodeHike } from '@code-hike/mdx'
 
+import tailwindPlugin from './plugins/tailwindcss'
 import codeHikeTheme from './theme'
 
-const config: Config = {
+const codehikeConfig = {
+  components: { code: 'Code' },
+  syntaxHighlighting: {
+    theme: codeHikeTheme,
+  },
+}
+
+const config = {
   title: "wty's site",
   favicon: 'img/favicon.ico',
   url: 'https://wty-andrew.github.io/',
@@ -30,11 +38,10 @@ const config: Config = {
           path: 'notes',
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          beforeDefaultRemarkPlugins: [
-            [remarkCodeHike, { theme: codeHikeTheme }],
-          ],
+          beforeDefaultRemarkPlugins: [[remarkCodeHike, codehikeConfig]],
           remarkPlugins: [remarkMath],
           rehypePlugins: [[rehypeKatex, { strict: false }]],
+          recmaPlugins: [[recmaCodeHike, codehikeConfig]],
         },
         blog: {
           path: 'blog',
@@ -65,11 +72,8 @@ const config: Config = {
       additionalLanguages: ['lisp'],
     },
   } satisfies Preset.ThemeConfig,
-  stylesheets: [
-    '/css/katex.min.css',
-    '/css/codehike.css',
-    '/css/pseudocode.min.css',
-  ],
-}
+  stylesheets: ['/css/katex.min.css', '/css/pseudocode.min.css'],
+  plugins: [tailwindPlugin],
+} satisfies Config
 
 module.exports = config

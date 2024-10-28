@@ -4,7 +4,7 @@ title: Load URDF with React Three Fiber
 import { Plane } from '@react-three/drei'
 import { StaticModel, DynamicModel, Viewer } from '../../src/diagrams/robot-viewer'
 
-<div style={{ height: 400 }}>
+<div className="h-[400px]">
   <Viewer camera={{ position: [0.2, 0.2, 0.2] }}>
     <StaticModel />
   </Viewer>
@@ -14,9 +14,10 @@ import { StaticModel, DynamicModel, Viewer } from '../../src/diagrams/robot-view
 
 In URDF, the location of a mesh file is specified under the `filename` attribute of a mesh element with the format: `package://<package_name>/path/to/<mesh_name>`, for example:
 
-```xml my_pkg/urdf/foo.urdf mark=3
+```xml my_pkg/urdf/foo.urdf
 ...
 <geometry>
+  <!-- !mark -->
   <mesh filename="package://my_pkg/meshes/bar.dae"/>
 </geometry>
 ...
@@ -30,7 +31,8 @@ However, URDF Loader doesn't know where to fetch the mesh files from the given p
 
 Consider the following ROS package structure
 
-```txt mark=3:7
+```txt
+# !mark(3:7)
 my_pkg/
 ├── launch/
 ├── meshes/
@@ -44,7 +46,8 @@ my_pkg/
 
 The mesh/URDF files should be copied into the public (static assets) folder of web server, assume no prefix for static files url
 
-```txt mark=4:10
+```txt
+# !mark(4:10)
 app/
 ├── src/
 ├── public/
@@ -80,7 +83,7 @@ const Model = () => {
 
 We need to initialize `URDFLoader` ourselves in order to remap the packages, basically create a dumb version of `useLoader`, it doesn't have suspense / cache support so is less convenient
 
-```tsx mark=8:10
+```tsx
 import { useEffect, useState } from 'react'
 import URDFLoader, { URDFRobot } from 'urdf-loader'
 
@@ -88,6 +91,7 @@ const Model = () => {
   const [robot, setRobot] = useState<URDFRobot>()
   useEffect(() => {
     const loader = new URDFLoader()
+    // !mark(1:3)
     loader.packages = {
       my_pkg: './models/foo',
     }
@@ -130,7 +134,7 @@ const Model = () => {
 }
 ```
 
-<div style={{ height: 400 }}>
+<div className="h-[400px]">
   <Viewer camera={{ position: [0, 1.2, 1.2] }}>
     <Plane args={[2, 2]} rotation={[-Math.PI / 2, 0, 0]}>
       <meshBasicMaterial color="#ffb385" />

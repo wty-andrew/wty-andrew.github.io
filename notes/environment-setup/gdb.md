@@ -16,7 +16,7 @@ Authentication is needed to run `/usr/bin/gdb’ as the super user
 
 Found a solution [here](https://github.com/microsoft/vscode-remote-release/issues/2053) by creating the following pkexec policy
 
-```xml title="/usr/share/polkit-1/actions/com.ubuntu.pkexec.gdb.policy"
+```xml /usr/share/polkit-1/actions/com.ubuntu.pkexec.gdb.policy
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE policyconfig PUBLIC
  "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
